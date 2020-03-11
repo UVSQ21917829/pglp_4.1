@@ -10,8 +10,8 @@ public final class Personnel implements InterfacePersonnel {
     private String nom;
     private String prenom;
     private LocalDate dateNaissance;
-  //parametres fonctionnels
-    private String fonction;
+  //parametres optionnel
+    private String fonction=null;
     List<Integer> tels= new ArrayList<Integer>();
 	public Personnel(Builder builder) {
 		this.id = builder.id;
@@ -20,6 +20,7 @@ public final class Personnel implements InterfacePersonnel {
 		this.dateNaissance = builder.dateNaissance;
 		
 	}
+	
 	
 	
 	public void print() {
@@ -47,6 +48,17 @@ public final class Personnel implements InterfacePersonnel {
     	   return this;
     	   
        }
+       public Builder addFonction(String fn) {
+   		
+   		this.fonction=fn;
+   		return this;
+   	}
+   	public Builder addDateNumeroTelephone( Integer numero) {
+   		this.tels.add(numero);
+   		
+   		return this;
+   		
+   	}
        public Personnel build() {
     	   return new Personnel(this);
        }
