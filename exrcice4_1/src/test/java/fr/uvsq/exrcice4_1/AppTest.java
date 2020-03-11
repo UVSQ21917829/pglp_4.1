@@ -1,6 +1,7 @@
 package fr.uvsq.exrcice4_1;
 
 import java.time.LocalDate;
+import java.time.format.DateTimeFormatter;
 
 import org.junit.Before;
 import org.junit.Test;
@@ -21,11 +22,13 @@ public class AppTest
 		Personnel p3;
 		Personnel p4;
 		CompositePersonnels cp1;
-		p1= new Personnel.Builder(0, "hajar", "hajar",null).build();
-		p2= new Personnel.Builder(0, "hajar", "hajar",null).build();
-		p3= new Personnel.Builder(0, "hajar", "hajar",null).build();
-		p4= new Personnel.Builder(0, "hajar", "hajar",null).build();
-				
+		InterfacePersonnel intr ;
+		p1= new Personnel.Builder(0, "aa", "jj",LocalDate.parse("1997-08-01",DateTimeFormatter.ISO_DATE)).build();
+		p2= new Personnel.Builder(0, "bb", "kk",LocalDate.parse("1990-08-01",DateTimeFormatter.ISO_DATE)).build();
+		p3= new Personnel.Builder(0, "cc", "ll",LocalDate.parse("1998-09-01",DateTimeFormatter.ISO_DATE)).build();
+		p4= new Personnel.Builder(0, "dd", "nn",LocalDate.parse("1997-08-01",DateTimeFormatter.ISO_DATE)).build();
+				 
+		
 		
 		
     	
