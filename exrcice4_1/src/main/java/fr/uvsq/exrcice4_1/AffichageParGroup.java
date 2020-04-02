@@ -3,8 +3,13 @@ package fr.uvsq.exrcice4_1;
 import java.util.ArrayList;
 
 public class AffichageParGroup {
-    private ArrayList list;
     
+public ArrayList<InterfacePersonnel> list =new ArrayList<InterfacePersonnel>();
+
+	public AffichageParGroup (InterfacePersonnel interfacePersonnel) {
+		list.add(interfacePersonnel);
+	}
+ 
    public void afficheGroupe() {
 	   
    }
@@ -12,13 +17,19 @@ public class AffichageParGroup {
 	private class GroupIterator implements Iterator{
         
 		public GroupIterator() {
-			int verif=0;
-			while(verif<list.size()){
-				if (list.get(verif) instanceof CompositePersonnels) {
+			int verifier=0;
+			while(verifier<list.size()) {
+				if(list.get(verifier) instanceof CompositePersonnels) {
+					CompositePersonnels test=(CompositePersonnels)list.get(verifier);
+					int i=0;
+					while(i<test.listperso.size()) {
+						list.add(test.listperso.get(i));
+						i++;
+					}
 					
-					for( InterfacePersonnel pers: ((CompositePersonnels)list.get(verif)).listperso )
-					list.add(pers);
+				
 				}
+				verifier++;
 			}
 		}
 		private int index;
@@ -27,12 +38,16 @@ public class AffichageParGroup {
 			if(index<list.size()) {
 				return true;
 			}
-			// TODO Auto-generated method stub
 			return false;
 		}
 
 		public InterfacePersonnel next() {
 			// TODO Auto-generated method stub
+			if(this.hasNext()) {
+				index++;
+				return list.get(index-1);
+			}
+				
 			return null;
 		}
 		

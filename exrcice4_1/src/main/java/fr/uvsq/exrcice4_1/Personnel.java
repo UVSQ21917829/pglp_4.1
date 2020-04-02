@@ -5,12 +5,10 @@ import java.util.ArrayList;
 import java.util.List;
 
 public final class Personnel implements InterfacePersonnel {
-	//parametres obligatoires
     private int id;
     private String nom;
     private String prenom;
     private LocalDate dateNaissance;
-  //parametres optionnel
     private String fonction=null;
     List<Integer> tels= new ArrayList<Integer>();
 	public Personnel(Builder builder) {
@@ -29,12 +27,10 @@ public final class Personnel implements InterfacePersonnel {
 		
 	}
 	public static class Builder{
-		//parametres obligatoires
 		private int id;
 	    private String nom;
 	    private String prenom;
 	    private LocalDate dateNaissance;
-	    //parametres fonctionnels
 	    private String fonction;
 	    List<Integer> tels= new ArrayList<Integer>();
 	    public Builder(int id, String nom, String prenom, LocalDate dateNaissance) {
@@ -62,9 +58,13 @@ public final class Personnel implements InterfacePersonnel {
        public Personnel build() {
     	   return new Personnel(this);
        }
+       
 		
 	}
-	
+	public String toString(){
+		  
+		  return " Personnel id : " + this.id;
+	}
 
 
 }
